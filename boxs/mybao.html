@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script>
+	<!-- /*适配手机类型*/ -->
+	<link rel="stylesheet" href="bao.css">
+</head>
+
+<body>
+	<div id="head"> 
+	<span><a href="#"><img src="images/top_left.jpg" alt=""></a></span>
+	<span>我的宝箱</span>
+	</div>
+    <div class="content_1">
+    	<ul class="ul">
+    		<li>已开宝箱获得</li>
+    		<li><img src="images/laba.png" alt=""></li>
+    		<li><span>13:34 </span>从余额宝充值中得到<span>￥20</span></li>
+    	</ul>
+    	<div class="packet">
+    		 <ul>
+    		 <li>
+    		 <img src="images/hongbao.jpg" alt="">
+    		 <img src="images/hongbao_2.png" alt="">
+    		 </li>
+    		 <li><img src="images/packet_2.png" alt=""></li>
+    		 <li><img src="images/shuangse.png" alt=""><p>中彩票</p></li>
+    		 <li><p>未获得</p></li>
+    		 </ul>
+    	</div>
+    </div>
+
+    <!-- 未开宝箱 -->
+    <div class="content_2">
+    	<p>未开宝箱<span class="num">12</span>个</p>
+    	<div class="btn1">
+    	 <ul class="btn">
+       <li></li>
+       <li></li>
+       <li></li>
+       </ul>
+       </div>
+    	<div class="right"><img src="images/right.png" alt=""></div>
+      
+         <div class="wrape">
+         	<div class="page">
+            <div class="count"><img src="images/X99.png" alt=""></div>
+            <div class="count"><img src="images/X99.png" alt=""></div>
+          <div class="count"><img src="images/X99.png" alt=""></div>
+         		<img src="images/dang.png" alt="">
+         			<img src="images/deng.png" alt="">
+         				<img src="images/jing.png" alt="">
+         	</div>
+         	<div class="page">
+              <div class="count"><img src="images/X99.png" alt=""></div>
+        <div class="count"><img src="images/X99.png" alt=""></div>
+        <div class="count"><img src="images/X99.png" alt=""></div>
+         		<img src="images/xin.png" alt="">
+         			<img src="images/shou.png" alt="">
+         				<img src="images/man.png" alt="">
+         	</div>
+         	<div class="page">
+            <div class="count"><img src="images/X99.png" alt=""></div>
+         <div class="count"><img src="images/X99.png" alt=""></div>
+     <div class="count"><img src="images/X99.png" alt=""></div>
+         			<img src="images/dang.png" alt="">
+         			  <img src="images/jing.png" alt="">
+         				<img src="images/deng.png" alt="">
+         	</div>
+         </div>
+    </div>
+    <div class="content_3">
+    	<a href="#"><img src="images/obtain.png" alt=""></a>
+    	<a href="#"><img src="images/balance.jpg" alt=""></a>
+    	<a href="#"><img src="images/share.jpg" alt=""></a>
+    	<a href="#"><img src="images/desire.jpg" alt=""></a>
+    </div>
+
+</body>
+<script>
+	var content2=document.getElementsByClassName('content_2')
+    var wrape=document.getElementsByClassName('wrape')
+    var page=document.getElementsByClassName('page')
+    var right1=document.getElementsByClassName('right')
+    var  btn=document.querySelectorAll('.btn li')
+    var  images=document.querySelectorAll('.wrape img')
+    var count=document.getElementsByClassName("count")
+    var num=document.getElementsByClassName("num")
+   var a=0;
+
+    for(var i=0;i<btn.length;i++){
+
+
+     btn[i].a=i;
+     btn[i].onclick=function(){
+
+
+  for(var j=0;j<btn.length;j++ )
+{
+
+ btn[j].style.background="#cbcbcb";
+
+
+}
+    
+
+btn[this.a].style.background="green"; 
+   wrape[0].style.left=-(this.a)*page[0].offsetWidth+"px";
+
+
+     }
+ 
+
+    }
+  
+
+
+  right1[0].onclick=function packet(argument) {
+        a++;
+        if(a>=page.length ){
+            a=0;
+        }
+          for(var j=0;j<btn.length;j++ )
+{
+
+ btn[j].style.background="#cbcbcb";
+}  
+        wrape[0].style.left=-a*page[0].offsetWidth+"px";
+        btn[a].style.background="green"; 
+    }
+// 点击宝箱，跳惊喜
+var index=0;
+var c="",d=null,f=[];
+   for( var i=0;i<images.length;i++ ) {
+     images[i].index=i;
+     images[i].onclick=function(){
+        d=this.index;
+        f.push(d)
+ c=images[this.index].src ;
+ images[this.index].src =c.replace("png","gif")
+   
+
+// 给gif 1s时间运行，然后返回PNG图
+  // var  h=(f.length)*1000;
+
+   setTimeout(function(){
+    // 
+    // console.log(f)
+    for(var j=0;j<f.length;j++      ){
+
+
+c=images[f[j]].src ;
+  
+images[f[j]].src =c.replace("gif","png")
+
+
+   }          
+   },1000) 
+
+   }
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
